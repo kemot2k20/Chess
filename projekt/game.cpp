@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 #include "game.h"
 #include "player.h"
+#include "ui.h"
+#include "ncurses.h"
 #include "chess-library-master/include/chess.hpp"
 
 using namespace chess;
@@ -72,10 +74,40 @@ void Game::makeMove(string uciMove) {
     turn ++;
 }
 
-void Game::startGame() {
-    // TODO
+void Game::gameLoop() {
+    UI ui;
+    while (true) {
+        ui.displayBoard(board.getFen());
+        if (gameOver()) {
+            ui.over("Game Over! Thank you for playing.");
+            endwin();
+            break;
+        }
+        int p = turn % 2; // 0 -> white's, 1 -> black's move
+        if (players[p].isAI) {
+            string AImove = ai.getMove(board);
+            makeMove(AImove);
+        } else {
+            string uciMove; 
+            while (true) {
+                uciMove = ui.getUserMove(players[p].name);
+                if (uciMove == "quit") {
+                    ui.quitGame();
+                    endwin();
+                    return;
+                }
+                if (!gameHelper.isMoveLegal(board, uciMove)) {
+                    ui.illegalMove();
+                    ui.displayBoard(board.getFen());
+                } else {
+                    makeMove(uciMove);
+                    break;
+                }
+            }
+        }
+    }
 }
 
-void Game::endGame() {
-    // TODO
+void Game::startGame() {
+    gameLoop();
 }
