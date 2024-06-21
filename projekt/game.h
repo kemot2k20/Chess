@@ -17,9 +17,7 @@ enum GameMode
 };
 
 class Game {
-    void startGame(); // displays starting position using gameGUI
-    void endGame(); // ends current game and waiting for input
-public:
+private:
     GameHelper gameHelper;
     vector<Player> players;
     AI ai;
@@ -27,7 +25,10 @@ public:
     int turn;
     bool gameOver();
     void makeMove(string uciMove);
+    void gameLoop();
+public:
     Game(GameMode gameMode = HUMAN_VS_AI);
+    void startGame();
 };
 
 #endif
