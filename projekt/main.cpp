@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
     UI ui;
-    Game game(HUMAN_VS_HUMAN);
+    Game game(HUMAN_VS_AI); // you can change to HUMAN_VS_HUMAN
     GameHelper gamehelper;
     while (true) {
         ui.displayBoard(game.board.getFen());
