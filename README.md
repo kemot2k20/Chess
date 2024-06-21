@@ -15,6 +15,9 @@
 # HOW TO USE
 
 Simply use : g++ -o myChessGame main.cpp game.cpp chessAI.cpp gameHelper.cpp player.cpp ui.cpp -lncursesw
+Then exectue ./myChessGame
+
+To play write moves in uci format.
 
 # ABOUT PROJECT
 
