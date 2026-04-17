@@ -4,7 +4,7 @@
 This class is responsible for managing the gameplay flow and communicating with the user.
 The `Game::gameLoop()` method is the main game loop, which uses the UI to display the current state of the board.
 
-### `GameHelper'
+### `GameHelper`
 `GameHelper` contains a set of utility methods used by the `Game` class. 
 Examples include: checking for checkmate or stalemate, returning all possible moves in a given position, and validating the legality of a move.
 
