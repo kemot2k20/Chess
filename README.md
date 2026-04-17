@@ -1,14 +1,14 @@
 # Chess
 
-![](projekt/ilustration/ex1.PNG)
+![](projekt/ilustration/ex1.png)
 
 #
 
-![](projekt/ilustration/ex3.PNG)
+![](projekt/ilustration/ex3.png)
 
 #
 
-![](projekt/ilustration/ex2.PNG)
+![](projekt/ilustration/ex2.png)
 
 #
 
