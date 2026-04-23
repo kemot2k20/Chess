@@ -1,29 +1,36 @@
 #ifndef CHESS_AI_H
 #define CHESS_AI_H
 
-#include <bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <unordered_map>
 #include "chess-library-master/include/chess.hpp"
 
-using namespace chess;
-using namespace std;
 using U64 = std::uint64_t;
 
 class AI {
-    Color ME;
-    Color OPP;
+private:
+    chess::Color ME;
+    chess::Color OPP;
     int botDifficulty;
-    unordered_map<U64, int> cnt, mapka;
-    unordered_map<U64, vector<pair<unsigned short, string>>> openingBook;
+    std::unordered_map<U64, int> cnt, mapka;
+    std::unordered_map<U64, std::vector<std::pair<unsigned short, std::string>>> openingBook;
 
-    int utility(Board board, Color turn);
+    int mg_table[12][64];
+    int eg_table[12][64];
+    
+    void init_tables();
+
+    int utility(chess::Board board, chess::Color turn);
     int getDepth();
-    pair<int, string> minimax(Board board, int alpha, int beta, Color to_play, int depth);
-    string decodePolyGlotMove(unsigned short polyMove);
-    void loadOpeningBook(string filename);
-    string getMoveFromOpeningBook(Board board);
+    std::pair<int, std::string> minimax(chess::Board board, int alpha, int beta, chess::Color to_play, int depth);
+    std::string decodePolyGlotMove(unsigned short polyMove);
+    void loadOpeningBook(std::string filename);
+    std::string getMoveFromOpeningBook(chess::Board board);
+
 public:
-    AI(Color ME = Color::BLACK, int botDifficulty = 1);
-    string getMove(Board board);
+    AI(chess::Color ME = chess::Color::BLACK, int botDifficulty = 1);
+    std::string getMove(chess::Board board);
 };
 
 #endif
