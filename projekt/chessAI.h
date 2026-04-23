@@ -5,6 +5,7 @@
 #include <string>
 #include <unordered_map>
 #include "chess-library-master/include/chess.hpp"
+#include "gameHelper.h"
 
 using U64 = std::uint64_t;
 
@@ -15,6 +16,8 @@ private:
     int botDifficulty;
     std::unordered_map<U64, int> cnt, mapka;
     std::unordered_map<U64, std::vector<std::pair<unsigned short, std::string>>> openingBook;
+
+    GameHelper gamehelper;
 
     int mg_table[12][64];
     int eg_table[12][64];
