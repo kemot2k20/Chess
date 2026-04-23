@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #include "chessAI.h"
-#include "gameHelper.h"
 
 using namespace std;
 using namespace chess;
@@ -176,9 +175,7 @@ namespace {
     }
 
     inline int FLIP(int sq) { return Mirror64Board[sq]; }
-} 
-
-GameHelper gamehelper;
+}
 
 void AI::init_tables() {
     int pc, p, sq;
